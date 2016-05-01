@@ -100,7 +100,7 @@ Requires: tcollector >= 1.2.1
 %{tcollectordir}/collectors/0/netstat.py
 %{tcollectordir}/collectors/0/procnettcp.py
 %{tcollectordir}/collectors/0/procstats.py
-%{tcollectordir}/collectors/0/smart_stats.py
+%{tcollectordir}/collectors/0/docker.py
 
 %postun collectors
 # $1 --> if 0, then it is a deinstall

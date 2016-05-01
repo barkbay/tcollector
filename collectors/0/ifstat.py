@@ -20,7 +20,7 @@ import re
 
 from collectors.lib import utils
 
-interval = 15  # seconds
+interval = 5  # seconds
 
 # /proc/net/dev has 16 fields, 8 for receive and 8 for transmit,
 # defined below.
@@ -56,8 +56,7 @@ def main():
         f_netdev.seek(0)
         ts = int(time.time())
         for line in f_netdev:
-            m = re.match("\s+(eth?\d+|em\d+_\d+/\d+|em\d+_\d+|em\d+|"
-                         "p\d+p\d+_\d+/\d+|p\d+p\d+_\d+|p\d+p\d+):(.*)", line)
+            m = re.match("\s*(e.*):(.*)", line)
             if not m:
                 continue
             intf = m.group(1)
